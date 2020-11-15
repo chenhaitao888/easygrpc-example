@@ -1,0 +1,18 @@
+server:
+  port: 9096
+
+easygrpc:
+  serverConfig:
+    serviceName: "EasyGrpcServer"
+    workThreads: 50
+    queueCapacity: 500
+    port: 8887
+#    servicePackages: ["com.example.demo.service.iface"]  springboot 启动可以不配置此项
+#    serviceImplPackages: ["com.example.demo.service.iface.impl"]  springboot 启动可以不配置此项
+
+  commonConfig:
+    registryAddress: "xxxx:2181"
+    appId: "EasyGrpcServer"
+    parameters:
+      easygrpc.logger: "slf4j"
+      easygrpc.proxy: "jdk"

@@ -1,0 +1,31 @@
+server:
+  port: 9099
+
+easygrpc:
+  serverConfig:
+    serviceName: "EasyGrpcClient"
+    port: 8077
+  commonConfig:
+    registryAddress: "xxxx:2181"
+    appId: "EasyGrpcClient"
+    parameters:
+      easygrpc.logger: "slf4j"
+      easygrpc.proxy: "jdk"
+
+  clientConfig: [
+    {
+      clientName: "EasyGrpcServer",
+      ifaceNames: ["com.easygrpc.example.client.service.EasyGrpcExample"],
+      workThreads: 20,
+      timeoutInMillis: 5000,
+      queueCapacity: 500
+    },
+    {
+      clientName: "EasyGrpcServer",
+      ifaceNames: ["com.easygrpc.example.client.service.EasyGrpcStreamExample"],
+      workThreads: 20,
+      timeoutInMillis: 5000,
+      queueCapacity: 500,
+      stubType: 1
+    }
+  ]
